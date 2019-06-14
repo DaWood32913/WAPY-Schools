@@ -38,12 +38,12 @@
         <h2>Search Criteria</h2>
         <form>
           <div class="form-group">
-            <label for="exampleFormControlInput1">Address</label>
+            <label for="exampleFormControlInput1">City, ST</label>
             <input
               type="address"
               class="form-control"
               id="exampleFormControlInput1"
-              placeholder="123 Smith St. City, ST ZIP"
+              placeholder="City, ST"
             />
           </div>
           <div class="form-group">
@@ -56,21 +56,35 @@
             />
           </div>
           <div class="form-group">
-            <label for="exampleFormControlInput3">How many results?</label>
-            <input
-              type="schoolCount"
-              class="form-control"
-              id="exampleFormControlInput3"
-              placeholder="10"
-            />
+            <label for="exampleFormControlSelect1"
+              >How many results would you like?</label
+            >
+            <select
+              class="form-control numOfMatches"
+              id="exampleFormControlSelect1"
+            >
+              <option>1</option>
+              <option>5</option>
+              <option>10</option>
+              <option>15</option>
+              <option>20</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Choose a radius</label>
+            <select class="form-control radius" id="exampleFormControlSelect1">
+              <option>5 miles</option>
+              <option>10 miles</option>
+              <option>15 miles</option>
+              <option>20 miles</option>
+              <option>50 miles</option>
+            </select>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </section>
     </div>
 
-    <footer>
-      Copyright &copy;
-    </footer>
+    <footer></footer>
   </body>
 </html>
