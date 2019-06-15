@@ -19,8 +19,11 @@
     ></script>
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
-    
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"
+    />
   </head>
 
   <body>
@@ -31,7 +34,6 @@
           Placeholder
         </p>
         <div id="map"></div>
-
       </div>
     </div>
 
@@ -40,16 +42,9 @@
         <h2>Search Criteria</h2>
         <form>
           <div class="form-group">
-            <label for="exampleFormControlInput1">City, ST</label>
-            <input
-              type="address"
-              class="form-control"
-              id="userArea"
-              placeholder="City, ST"
-            />
-          </div>
-          <div class="form-group">
-            <label for="exampleFormControlInput2">ZIP CODE</label>
+            <label for="exampleFormControlInput2"
+              >ENTER ANY (Address, City, ST, ZipCode, Country)</label
+            >
             <input
               type="text"
               class="form-control"
@@ -61,10 +56,7 @@
             <label for="exampleFormControlSelect1"
               >How many results would you like?</label
             >
-            <select
-              class="form-control numOfMatches"
-              id="results"
-            >
+            <select class="form-control numOfMatches" id="results">
               <option>1</option>
               <option>5</option>
               <option>10</option>
@@ -82,7 +74,9 @@
               <option>50</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+          <button type="submit" class="btn btn-primary" id="submit">
+            Submit
+          </button>
         </form>
       </section>
     </div>
