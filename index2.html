@@ -10,7 +10,7 @@
       crossorigin="anonymous"
     />
 
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <script src="https://code.jquery.com/jquery.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -18,6 +18,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
     
   </head>
 
@@ -28,6 +30,8 @@
         <p class="lead">
           Placeholder
         </p>
+        <div id="map"></div>
+
       </div>
     </div>
 
@@ -71,11 +75,11 @@
           <div class="form-group">
             <label for="exampleFormControlSelect1">Choose a radius</label>
             <select class="form-control radius" id="radius">
-              <option>5 miles</option>
-              <option>10 miles</option>
-              <option>15 miles</option>
-              <option>20 miles</option>
-              <option>50 miles</option>
+              <option>5</option>
+              <option>10</option>
+              <option>15</option>
+              <option>20</option>
+              <option>50</option>
             </select>
           </div>
           <button type="submit" class="btn btn-primary" id="submit">Submit</button>
