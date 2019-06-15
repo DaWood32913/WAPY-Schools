@@ -44,7 +44,7 @@ $(document).ready(function() {
 
       var userLat = response.origin.latLng.lat;
       var userLng = response.origin.latLng.lng;
-      map.setCenter([userLat, userLng]);      // var map = L.mapquest.map("map", {
+      // var map = L.mapquest.map("map", {
       //   center: [userLat, userLng], //lat and long of Philly
       //   layers: L.mapquest.tileLayer("map"),
       //   zoom: 12
