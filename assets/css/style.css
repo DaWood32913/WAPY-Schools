@@ -1,4 +1,16 @@
 #map {
+    /* float: left; */
     width: 100%; 
     height: 530px;
+    padding-bottom: 30px;
+    float: left;
+}
+
+main.container{
+    clear: right;
+    width: 45%
+}
+
+.form-group {
+    width: 40%;
 }
