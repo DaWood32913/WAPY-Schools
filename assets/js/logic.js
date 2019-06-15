@@ -2,16 +2,31 @@ $(document).ready(function() {
   // L.mapquest api key
   L.mapquest.key = "t7tjvfXYnZqurjibcReSbSdBdd678z5W";
 
+  var map = L.mapquest.map("map", {
+    center: [41.409, -75.6624],
+    layers: L.mapquest.tileLayer("map"),
+    zoom: 12
+  });
+
+  map.addControl(L.mapquest.control());
+
   // ‘map’ refers to a <div> element with the ID map
   // gets the Web MapQuests SDK to display a map
 
   $("#submit").on("click", function(e) {
     e.preventDefault();
 
+    // function resetMap() {
+    //   zipCode = "";
+    //   radius = "";
+    //   results = "";
+    //   userLat = "";
+    //   userLng = "";
+    //   map = "";
+    //   $("#map").empty();
+    //   $(".jumbotron").empty();
+    // }
     // have radius, origin, matches customizable search queries
-    userArea = $("#userArea")
-      .val()
-      .trim();
     zipCode = $("#zipcode")
       .val()
       .trim();
@@ -22,7 +37,6 @@ $(document).ready(function() {
       .val()
       .trim();
 
-    console.log(userArea);
     console.log(zipCode);
     console.log(radius);
     console.log(results);
@@ -46,13 +60,6 @@ $(document).ready(function() {
       // variables for user values of coordinates
       var userLat = response.origin.latLng.lat;
       var userLng = response.origin.latLng.lng;
-      var map = L.mapquest.map("map", {
-        center: [userLat, userLng],
-        layers: L.mapquest.tileLayer("map"),
-        zoom: 12
-      });
-
-      map.addControl(L.mapquest.control());
 
       for (i = 0; i < response.searchResults.length; i++) {
         // var markerLat = response.searchResults.shapePoints;
@@ -60,7 +67,10 @@ $(document).ready(function() {
         console.log(response.searchResults[i].shapePoints[0]);
         console.log(response.searchResults[i].shapePoints[1]);
         // console.log(markerLng);
-        L.marker([response.searchResults[i].shapePoints[0], response.searchResults[i].shapePoints[1]])
+        L.marker([
+          response.searchResults[i].shapePoints[0],
+          response.searchResults[i].shapePoints[1]
+        ])
           .addTo(map)
           .bindPopup("<strong>" + response.searchResults[i].name + "</strong>")
           .openPopup();
