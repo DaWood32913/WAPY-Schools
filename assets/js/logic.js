@@ -1,13 +1,12 @@
 $(document).ready(function() {
-    // L.mapquest api key
-    L.mapquest.key = "t7tjvfXYnZqurjibcReSbSdBdd678z5W";
-   
-    // ‘map’ refers to a <div> element with the ID map
-    // gets the Web MapQuests SDK to display a map
-   
-    $("#submit").on("click", function(e) {
+  // L.mapquest api key
+  L.mapquest.key = "t7tjvfXYnZqurjibcReSbSdBdd678z5W";
 
-      e.preventDefault();
+  // ‘map’ refers to a <div> element with the ID map
+  // gets the Web MapQuests SDK to display a map
+
+  $("#submit").on("click", function(e) {
+    e.preventDefault();
 
     // have radius, origin, matches customizable search queries
       // userArea = $("#userArea").val().trim();
@@ -62,9 +61,29 @@ $(document).ready(function() {
           .openPopup();
       }
       });
+      for (i = 0; i < response.searchResults.length; i++) {
+        // var markerLat = response.searchResults.shapePoints;
+        // var markerLng = response.searchResults.shapePoints; // displays mapqiest map
+        // console.log(response.searchResults[i].shapePoints[0]);
+        // console.log(response.searchResults[i].shapePoints[1]);
+        // console.log(markerLng);
+        L.marker([response.searchResults[i].shapePoints[0], response.searchResults[i].shapePoints[1]])
+        .bindPopup("<strong>" + response.searchResults[i].name + "</strong>")
+        //  .on("popup", function (popup){
+        //    console.log(popup.getContent());
+        //  }) 
+        .addTo(map)
+          // .openPopup();
+      }
+
     });
-   
-    // Radius Search API with MapQuest
-    // http://www.mapquestapi.com/search/v2/radius?key=L.mapquest.key&maxMatches=4&origin=39.750307,-104.999472
-   
-   });
+    
+  });
+  $(".leaflet-popup").on("click", function (event){
+    event.preventDefault();
+    schoolName = $(this).schoolName.val().trim();
+    console.log(schoolName);
+  })
+  // Radius Search API with MapQuest
+  // http://www.mapquestapi.com/search/v2/radius?key=L.mapquest.key&maxMatches=4&origin=39.750307,-104.999472
+});
