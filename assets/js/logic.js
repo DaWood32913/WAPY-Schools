@@ -53,21 +53,32 @@ $(document).ready(function() {
       });
 
       map.addControl(L.mapquest.control());
-
+      map.on("popup", function (popup){
+        console.log(popup)
+      });
       for (i = 0; i < response.searchResults.length; i++) {
         // var markerLat = response.searchResults.shapePoints;
         // var markerLng = response.searchResults.shapePoints; // displays mapqiest map
-        console.log(response.searchResults[i].shapePoints[0]);
-        console.log(response.searchResults[i].shapePoints[1]);
+        // console.log(response.searchResults[i].shapePoints[0]);
+        // console.log(response.searchResults[i].shapePoints[1]);
         // console.log(markerLng);
         L.marker([response.searchResults[i].shapePoints[0], response.searchResults[i].shapePoints[1]])
-          .addTo(map)
-          .bindPopup("<strong>" + response.searchResults[i].name + "</strong>")
-          .openPopup();
+        .bindPopup("<strong>" + response.searchResults[i].name + "</strong>")
+        //  .on("popup", function (popup){
+        //    console.log(popup.getContent());
+        //  }) 
+        .addTo(map)
+          // .openPopup();
       }
-    });
-  });
 
+    });
+    
+  });
+  $(".leaflet-popup").on("click", function (event){
+    event.preventDefault();
+    schoolName = $(this).schoolName.val().trim();
+    console.log(schoolName);
+  })
   // Radius Search API with MapQuest
   // http://www.mapquestapi.com/search/v2/radius?key=L.mapquest.key&maxMatches=4&origin=39.750307,-104.999472
 });
