@@ -2,13 +2,46 @@ $(document).ready(function() {
   // L.mapquest api key
   L.mapquest.key = "t7tjvfXYnZqurjibcReSbSdBdd678z5W";
 
+  var map = L.mapquest.map("map", {
+    center: [41.409, -75.6624],
+    layers: L.mapquest.tileLayer("map"),
+    zoom: 12
+  });
+
+  map.addControl(L.mapquest.control());
+
   // ‘map’ refers to a <div> element with the ID map
   // gets the Web MapQuests SDK to display a map
 
   $("#submit").on("click", function(e) {
     e.preventDefault();
 
+    // function resetMap() {
+    //   zipCode = "";
+    //   radius = "";
+    //   results = "";
+    //   userLat = "";
+    //   userLng = "";
+    //   map = "";
+    //   $("#map").empty();
+    //   $(".jumbotron").empty();
+    // }
     // have radius, origin, matches customizable search queries
+<<<<<<< HEAD
+    zipCode = $("#zipcode")
+      .val()
+      .trim();
+    radius = $("#radius")
+      .val()
+      .trim();
+    results = $("#results")
+      .val()
+      .trim();
+
+    console.log(zipCode);
+    console.log(radius);
+    console.log(results);
+=======
       // userArea = $("#userArea").val().trim();
       zipCode = $("#zipcode").val().trim();
       radius = $("#radius").val().trim();
@@ -18,6 +51,7 @@ $(document).ready(function() {
       console.log(zipCode);
       console.log(radius);
       console.log(results);
+>>>>>>> dc8980e041e251eb12645a8de0a7e0c2a16212e4
 
       var queryURL =
         "https://www.mapquestapi.com/search/v2/radius?origin=" +
