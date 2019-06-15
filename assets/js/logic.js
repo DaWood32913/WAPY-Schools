@@ -27,7 +27,6 @@ $(document).ready(function() {
     //   $(".jumbotron").empty();
     // }
     // have radius, origin, matches customizable search queries
-<<<<<<< HEAD
     zipCode = $("#zipcode")
       .val()
       .trim();
@@ -41,17 +40,6 @@ $(document).ready(function() {
     console.log(zipCode);
     console.log(radius);
     console.log(results);
-=======
-      // userArea = $("#userArea").val().trim();
-      zipCode = $("#zipcode").val().trim();
-      radius = $("#radius").val().trim();
-      results = $("#results").val().trim();
-
-      // console.log(userArea);
-      console.log(zipCode);
-      console.log(radius);
-      console.log(results);
->>>>>>> dc8980e041e251eb12645a8de0a7e0c2a16212e4
 
       var queryURL =
         "https://www.mapquestapi.com/search/v2/radius?origin=" +
