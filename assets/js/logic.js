@@ -10,12 +10,12 @@ $(document).ready(function() {
       e.preventDefault();
 
     // have radius, origin, matches customizable search queries
-      userArea = $("#userArea").val().trim();
+      // userArea = $("#userArea").val().trim();
       zipCode = $("#zipcode").val().trim();
       radius = $("#radius").val().trim();
       results = $("#results").val().trim();
 
-      console.log(userArea);
+      // console.log(userArea);
       console.log(zipCode);
       console.log(radius);
       console.log(results);
@@ -49,6 +49,18 @@ $(document).ready(function() {
           });
 
           map.addControl(L.mapquest.control());
+          
+          for (i = 0; i < response.searchResults.length; i++) {
+        // var markerLat = response.searchResults.shapePoints;
+        // var markerLng = response.searchResults.shapePoints; // displays mapqiest map
+        console.log(response.searchResults[i].shapePoints[0]);
+        console.log(response.searchResults[i].shapePoints[1]);
+        // console.log(markerLng);
+        L.marker([response.searchResults[i].shapePoints[0], response.searchResults[i].shapePoints[1]])
+          .addTo(map)
+          .bindPopup("<strong>" + response.searchResults[i].name + "</strong>")
+          .openPopup();
+      }
       });
     });
    
