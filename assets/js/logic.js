@@ -44,13 +44,11 @@ $(document).ready(function() {
 
       var userLat = response.origin.latLng.lat;
       var userLng = response.origin.latLng.lng;
-      // var map = L.mapquest.map("map", {
-      //   center: [userLat, userLng], //lat and long of Philly
-      //   layers: L.mapquest.tileLayer("map"),
-      //   zoom: 12
-      // });
+      console.log(userLat);
+      console.log(userLng);
+      map.setView([userLat, userLng]);
 
-      // // map.addControl(L.mapquest.control());
+      // map.addControl(L.mapquest.control());
 
       for (i = 0; i < response.searchResults.length; i++) {
         console.log(response.searchResults[i].shapePoints[0]);
