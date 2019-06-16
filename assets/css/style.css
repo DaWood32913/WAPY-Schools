@@ -5,7 +5,7 @@
     margin-right: 0px;
     padding-bottom: 30px;
     float: left;
-    /* z-index: -1; */
+    z-index: 1;
 }
 
 .container {
@@ -24,26 +24,41 @@ p {
 }
 
 form {
-    margin: 0 140px;
+    margin: 0 230px;
 }
 
 .form-group {
     width: 100%;
     padding-bottom: 12px;
-    
 }
 
 .form-control {
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 3px 10px rgb(59, 59, 59, 0.3);
+    border: 0;
 }
 
 #search {
-    /* margin: 5vh auto; */
     padding-top: 10vh;
+    box-shadow: -4px 4px 10px rgb(59, 59, 59, 0.3);
+    z-index: 2;
+}
+
+.card-header {
+    border: 0;
 }
 
 .card {
-    margin-top: 100px;
+    margin-top: 80px;
+    border: 0;
+    box-shadow: 1px 3px 10px rgb(59, 59, 59, 0.3);
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#submit {
+    width: 100%;
+    margin-top: 12px;
+    box-shadow: 1px 3px 10px rgb(59, 59, 59, 0.3);
 }
 
 th {
@@ -52,4 +67,14 @@ th {
 
 th:last-child {
     width: 44%;
+}
+
+@media screen and (max-width: 768px) {
+    #map {
+        width: 50vh;
+    }
+
+    #search {
+   width: 50vh;      
+    }
 }
