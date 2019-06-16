@@ -61,7 +61,13 @@ $(document).ready(function() {
           .addTo(map)
           .bindPopup("<strong>" + response.searchResults[i].name + "</strong>")
           .openPopup();
-      }
+       }
+       L.popup()
+       .on("click", function(evt){
+         evt.preventDefault();
+         var schoolName = $(this).getContent("");
+         console.log(schoolName);
+       })
     });
   });
 
