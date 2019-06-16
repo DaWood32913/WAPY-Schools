@@ -2,7 +2,8 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8" />
-    <title>School Finder</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://img.icons8.com/material/24/000000/school-house.png" />
+    <title>Wapy Schools</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -11,6 +12,13 @@
     />
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Work+Sans&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -19,13 +27,9 @@
     ></script>
     <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"
-    />
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Work+Sans&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+     <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
   </head>
 
   <body>
@@ -35,16 +39,16 @@
         </div>
       <div class="col-md-6" id="search">
         <section class="main-section">
-          <h2>App Name</h2>
+          <h2>Wapy Schools</h2>
           <p>Your child's future begins below</p>
           <form>
             <div class="form-group">
-              <label for="exampleFormControlInput2">Enter any (Address, City, ST, ZipCode, Country)</label>
+              <label for="exampleFormControlInput2">Enter any (Address, City, ST, ZipCode, or Country)</label>
               <input
                 type="text"
                 class="form-control"
                 id="zipcode"
-                placeholder="i.e. 12345"
+                placeholder="i.e. 12345, 123 Abc Street, Def, PA"
               />
             </div>
             <div class="form-group">
@@ -72,28 +76,28 @@
               </select>
             </div>
             <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-
-            <div class="card">
-              <div class="card-header">
-                  Favorites
-              </div>
-              <div class="card-body">
-                <table>
-                <tr>
-                  <th>School Name</th>
-                  <th>School Type</th>
-                  <th>Location</th>
-                </tr>
-                <tr>
-                <td class="placeholder"></td>
-                <td class="placeholder"></td>
-                <td class="placeholder"></td>
-                </tr>
-                </table>
-              </div>
-            </div>
+            <!-- table was here -->
           </form>
         </section>
+        <div class="card">
+          <div class="card-header">
+              Your Favorites
+          </div>
+          <div class="card-body">
+            <table>
+            <tr>
+              <th>School Name</th>
+              <th>School Type</th>
+              <th>Website</th>
+            </tr>
+            <tr>
+            <td class="placeholder"></td>
+            <td class="placeholder"></td>
+            <td class="placeholder"></td>
+            </tr>
+            </table>
+          </div>
+        </div>
       </div>
     </div> 
 
