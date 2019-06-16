@@ -1,8 +1,11 @@
 $(document).ready(function() {
   L.mapquest.key = "t7tjvfXYnZqurjibcReSbSdBdd678z5W";
+var userLat = 41.409
+var userLng = -75.6624
+
 
   var map = L.mapquest.map("map", {
-    center: [41.409, -75.6624],
+    center: [userLat, userLng],
     layers: L.mapquest.tileLayer("map"),
     zoom: 12
   });
@@ -41,16 +44,19 @@ $(document).ready(function() {
       method: "GET"
     }).then(function(response) {
       console.log(response);
+      console.log(response.searchResults[0].fields);
+      console.log(response.searchResults[3].fields)
 
-      var userLat = response.origin.latLng.lat;
-      var userLng = response.origin.latLng.lng;
+       userLat = response.origin.latLng.lat;
+       userLng = response.origin.latLng.lng;
+       map.center = [userLat, userLng];
       // var map = L.mapquest.map("map", {
       //   center: [userLat, userLng], //lat and long of Philly
       //   layers: L.mapquest.tileLayer("map"),
       //   zoom: 12
       // });
 
-      // // map.addControl(L.mapquest.control());
+      // map.addControl(L.mapquest.control());
 
       for (i = 0; i < response.searchResults.length; i++) {
         console.log(response.searchResults[i].shapePoints[0]);
