@@ -1,4 +1,73 @@
 $(document).ready(function() {
+  // =================================================================
+  //              CODE THAT WE NEED TO USE for FIREBASE   (start of code)
+  // ======================================================================
+
+  // var firebaseConfig = {
+  //   apiKey: "AIzaSyCAZFgMB7e3742Byngzlg7Zni_YAWCGIcg",
+  //   authDomain: "schoolsearchteamproject.firebaseapp.com",
+  //   databaseURL: "https://schoolsearchteamproject.firebaseio.com",
+  //   projectId: "schoolsearchteamproject",
+  //   storageBucket: "schoolsearchteamproject.appspot.com",
+  //   messagingSenderId: "115968045002",
+  //   appId: "1:115968045002:web:ba31da0a72e159ea"
+  // };
+  // // Initialize Firebase
+  // firebase.initializeApp(firebaseConfig);
+  // // Reference to the database we're writing to.
+  // var database = firebase.database();
+
+  // =================================================================
+  //              CODE THAT WE NEED TO USE for FIREBASE   (end of code)
+  // ======================================================================
+
+  // =================================================================
+  //              CODE THAT WE MIGHT NEED TO USE    (start of code)
+  // ======================================================================
+  // Create Firebase event for adding train to the database and a row in the html when a user
+  // adds an entry
+  // database.ref().on("child_added", function(childSnapshot) {
+  //   console.log(childSnapshot.val());
+
+  // Store data in variables
+
+  // var one = childSnapshot.val().one;
+  // var two = childSnapshot.val().two;
+  // var three = childSnapshot.val().three;
+  // var four = childSnapshot.val().four;
+  // var five = childSnapshot.val().five;
+  // var six = childSnapshot.val().six;
+
+  // console.log(one);
+  // console.log(two);
+  // console.log(three);
+  // console.log(four);
+  // console.log(five);
+  // console.log(six);
+
+  // Creates the new Row of data
+
+  // $("#table > tbody").append(
+  //   "<tr><td>" +
+  //     one +
+  //     "</td><td>" +
+  //     two +
+  //     "</td><td>" +
+  //     three +
+  //     "</td><td>" +
+  //     four +
+  //     "</td><td>" +
+  //     five +
+  //     "</td></tr>"
+  // );
+  // });
+
+  // database.ref().on("value", function(snapshot) {});
+
+  // =================================================================
+  //              CODE THAT WE MIGHT NEED TO USE    (end of code)
+  // ======================================================================
+
   L.mapquest.key = "t7tjvfXYnZqurjibcReSbSdBdd678z5W";
 
   var map = L.mapquest.map("map", {
