@@ -156,8 +156,10 @@ $(document).ready(function() {
        $(".leaflet-popup").on("click", function(evt) {
         evt.preventDefault();
 
-        var popup = $(this,);
-        console.log(popup);
+        var school = $(this).find(".leaflet-popup-content").text();
+        console.log(school);
+
+        
       });
     });
   });
