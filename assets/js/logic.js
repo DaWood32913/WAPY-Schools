@@ -62,12 +62,12 @@ $(document).ready(function() {
           .bindPopup("<strong>" + response.searchResults[i].name + "</strong>")
           .openPopup();
        }
-       L.popup()
-       .on("click", function(evt){
-         evt.preventDefault();
-         var schoolName = $(this).getContent("");
-         console.log(schoolName);
-       })
+       $(".leaflet-popup").on("click", function(evt) {
+        evt.preventDefault();
+
+        var popup = $(this,);
+        console.log(popup);
+      });
     });
   });
 
