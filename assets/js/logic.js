@@ -152,7 +152,13 @@ $(document).ready(function() {
           .addTo(map)
           .bindPopup("<strong>" + response.searchResults[i].name + "</strong>")
           .openPopup();
-      }
+       }
+       $(".leaflet-popup").on("click", function(evt) {
+        evt.preventDefault();
+
+        var popup = $(this,);
+        console.log(popup);
+      });
     });
   });
 
