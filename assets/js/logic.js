@@ -113,9 +113,9 @@ $(document).ready(function() {
       .val()
       .trim();
 
-    console.log(zipCode);
-    console.log(radius);
-    console.log(results);
+    // console.log(zipCode);
+    // console.log(radius);
+    // console.log(results);
 
     var queryURL =
       "https://www.mapquestapi.com/search/v2/radius?origin=" +
@@ -135,8 +135,10 @@ $(document).ready(function() {
 
       var userLat = response.origin.latLng.lat;
       var userLng = response.origin.latLng.lng;
-      console.log(userLat);
-      console.log(userLng);
+      var state = response.origin.adminArea3;
+      console.log(state);
+      // console.log(userLat);
+      // console.log(userLng);
       map.setView([userLat, userLng]);
 
       // map.addControl(L.mapquest.control());
@@ -152,14 +154,29 @@ $(document).ready(function() {
           .addTo(map)
           .bindPopup("<strong>" + response.searchResults[i].name + "</strong>")
           .openPopup();
-       }
-       $(".leaflet-popup").on("click", function(evt) {
+      }
+      $(".leaflet-popup").on("click", function(evt) {
         evt.preventDefault();
 
-        var school = $(this).find(".leaflet-popup-content").text();
+        var school = $(this)
+          .find(".leaflet-popup-content")
+          .text();
+
         console.log(school);
 
-        
+        var schoolURL =
+          "https://api.schooldigger.com/v1.2/schools?st=" +
+          state +
+          "&q=" +
+          school +
+          "&qSearchSchoolNameOnly=true&appID=55dad4c8&appKey=8512eecb93df3e030cb4b4da02440018";
+
+          $.ajax({
+            url: schoolURL,
+            method: "GET"
+          }).then(function (resp){
+            console.log(resp)
+          });
       });
     });
   });
