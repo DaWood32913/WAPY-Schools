@@ -2,27 +2,49 @@ $(document).ready(function() {
   // =================================================================
   //              CODE THAT WE NEED TO USE for FIREBASE   (start of code)
   // ======================================================================
+  var firebaseConfig = {
+    apiKey: "AIzaSyCAZFgMB7e3742Byngzlg7Zni_YAWCGIcg",
+    authDomain: "schoolsearchteamproject.firebaseapp.com",
+    databaseURL: "https://schoolsearchteamproject.firebaseio.com",
+    projectId: "schoolsearchteamproject",
+    storageBucket: "schoolsearchteamproject.appspot.com",
+    messagingSenderId: "115968045002",
+    appId: "1:115968045002:web:ba31da0a72e159ea"
+  };
 
-  // var firebaseConfig = {
-  //   apiKey: "AIzaSyCAZFgMB7e3742Byngzlg7Zni_YAWCGIcg",
-  //   authDomain: "schoolsearchteamproject.firebaseapp.com",
-  //   databaseURL: "https://schoolsearchteamproject.firebaseio.com",
-  //   projectId: "schoolsearchteamproject",
-  //   storageBucket: "schoolsearchteamproject.appspot.com",
-  //   messagingSenderId: "115968045002",
-  //   appId: "1:115968045002:web:ba31da0a72e159ea"
-  // };
   // // Initialize Firebase
-  // firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
   // // Reference to the database we're writing to.
-  // var database = firebase.database();
+  var database = firebase.database();
 
-  // =================================================================
-  //              CODE THAT WE NEED TO USE for FIREBASE   (end of code)
-  // ======================================================================
+  $("#submit").on("click", function(testFirebase) {
+    testFirebase.preventDefault();
 
-  // =================================================================
-  //              CODE THAT WE MIGHT NEED TO USE    (start of code)
+    // Initial Values
+    var zippy = "";
+
+    zippy = $("#zipcode")
+      .val()
+      .trim();
+    database.ref().set({
+      zippy: zippy
+    });
+  });
+
+  database.ref().on(
+    "value",
+    function(snapshot) {
+      // Log everything that's coming out of snapshot
+      console.log(snapshot.val());
+      console.log(snapshot.val().zippy);
+
+      // Handle the errors
+    },
+    function(errorObject) {
+      console.log("Errors handled: " + errorObject.code);
+    }
+  );
+
   // ======================================================================
   // Create Firebase event for adding train to the database and a row in the html when a user
   // adds an entry
