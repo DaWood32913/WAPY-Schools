@@ -21,7 +21,7 @@ $(document).ready(function() {
     "value",
     function(snapshot) {
       // Log everything that's coming out of snapshot
-      console.log(snapshot.val());
+      // console.log(snapshot.val());
 
       // Handle the errors
     },
@@ -40,7 +40,7 @@ $(document).ready(function() {
 
     var schoolName = childSnapshot.val().schoolName;
     var schoolType = childSnapshot.val().schoolType;
-    var schoolURL = childSnapshot.val().schoolURL;
+    var schoolWeb = childSnapshot.val().schoolWeb;
 
     $("table")
       .find("tbody")
@@ -49,7 +49,7 @@ $(document).ready(function() {
           "<tr>",
           "<td>" + schoolName + "</td>",
           "<td>" + schoolType + "</td>",
-          "<td>" + schoolURL + "</td>",
+          "<td>" + schoolWeb + "</td>",
           "</tr>"
         ].join("")
       );
@@ -142,8 +142,8 @@ $(document).ready(function() {
       // map.addControl(L.mapquest.control());
 
       for (i = 0; i < response.searchResults.length; i++) {
-        console.log(response.searchResults[i].shapePoints[0]);
-        console.log(response.searchResults[i].shapePoints[1]);
+        // console.log(response.searchResults[i].shapePoints[0]);
+        // console.log(response.searchResults[i].shapePoints[1]);
 
         L.marker([
           response.searchResults[i].shapePoints[0],
@@ -178,9 +178,9 @@ $(document).ready(function() {
 
           $("table")
             .find("tbody")
-            .append(
+            .html(
               [
-                "<tr>",
+                "<tr:last>",
                 "<td>" + resp.schoolList[0].schoolName + "</td>",
                 "<td>" + resp.schoolList[0].schoolLevel + "</td>",
                 "<td>" + resp.schoolList[0].url + "</td>",
@@ -193,12 +193,12 @@ $(document).ready(function() {
             // Initial Values
             var schoolName = resp.schoolList[0].schoolName;
             var schoolType = resp.schoolList[0].schoolLevel;
-            var schoolURL = resp.schoolList[0].url;
+            var schoolWeb = resp.schoolList[0].url;
 
             database.ref().push({
               schoolName: schoolName,
               schoolType: schoolType,
-              schoolURL: schoolURL
+              schoolWeb: schoolWeb
             });
           });
         });
