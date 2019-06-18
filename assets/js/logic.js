@@ -17,20 +17,6 @@ $(document).ready(function() {
   // // Reference to the database we're writing to.
   var database = firebase.database();
 
-  $("#submit").on("click", function(testFirebase) {
-    testFirebase.preventDefault();
-
-    // Initial Values
-    var zippy = "";
-
-    zippy = $("#zipcode")
-      .val()
-      .trim();
-    database.ref().set({
-      zippy: zippy
-    });
-  });
-
   database.ref().on(
     "value",
     function(snapshot) {
@@ -189,6 +175,20 @@ $(document).ready(function() {
                 "</tr>"
               ].join("")
             );
+          $("#favorite").on("click", function(testFirebase) {
+            testFirebase.preventDefault();
+
+            // Initial Values
+            var schoolName = resp.schoolList[0].schoolName;
+            var schoolType = resp.schoolList[0].schoolLevel;
+            var schoolURL = resp.schoolList[0].url;
+
+            database.ref().push({
+              schoolName: schoolName,
+              schoolType: schoolType,
+              schoolURL: schoolURL
+            });
+          });
         });
       });
     });
