@@ -69,6 +69,15 @@ th:last-child {
     width: 44%;
 }
 
+#favorite {
+    float: right;
+}
+
+/*  */
+@media screen and (max-width: 980px) {
+}
+/* Tablets/iPads */
+
 @media screen and (max-width: 768px) {
     #map {
         width: 50vh;
@@ -77,4 +86,8 @@ th:last-child {
     #search {
    width: 50vh;      
     }
+}
+
+/*  */
+@media screen and (max-width: 640px) {
 }

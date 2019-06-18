@@ -2,6 +2,7 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="https://img.icons8.com/material/24/000000/school-house.png" />
     <title>Wapy Schools</title>
     <link
@@ -17,8 +18,7 @@
       rel="stylesheet"
       href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"
     />
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Work+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet"> 
     <script src="https://code.jquery.com/jquery.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -83,7 +83,8 @@
         </section>
         <div class="card">
           <div class="card-header">
-              Your Favorites
+            Your Favorites
+            <button type="button" class="btn btn-primary" id="favorite">Add</button>
           </div>
           <div class="card-body">
             <table>
@@ -93,9 +94,9 @@
               <th>Website</th>
             </tr>
             <tr>
-            <td class="placeholder"></td>
-            <td class="placeholder"></td>
-            <td class="placeholder"></td>
+            <td id="schoolName"></td>
+            <td id="schoolType"></td>
+            <td id="website"></td>
             </tr>
             </table>
           </div>
@@ -103,9 +104,6 @@
       </div>
     </div> 
 
-   
-
-      
     <script src="assets/js/logic.js"></script>
 
     <footer></footer>

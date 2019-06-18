@@ -1,31 +1,7 @@
-# Group8-Repo
+# Wapy Schools
 
-Horoscope / Constellation User Page
+The first stop to your child's future begins here!
 
-User
+Whether your next home is from finding a new job, getting a new home or planning your child’s future, Wapy Schools is here to ease the stress of juggling many tasks as a parent when finding a suitable school for your children.
 
-object to display their horoscope
-
-people log in
-zodiac sign
-horoscope
-
-chat functionality
-matches chat
-
-pick your horoscope
-
-login to creat a profile
-
-matching algorithm
-
-api may let you enter birthday
-
-1st Api bringing back the Horoscope information
-
-2nd API bringing back constellation infomation
-
-Jumbotron at top page
-
-Clicking on the sign
-name
+Simply enter the location you are interested in via address, zipcode, or city, state, how many results you would like and how far you would like to search. Wapy Schools will return what you're looking for on your search for better education!
