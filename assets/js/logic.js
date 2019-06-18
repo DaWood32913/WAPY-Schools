@@ -22,7 +22,6 @@ $(document).ready(function() {
     function(snapshot) {
       // Log everything that's coming out of snapshot
       console.log(snapshot.val());
-      console.log(snapshot.val().zippy);
 
       // Handle the errors
     },
