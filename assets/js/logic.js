@@ -155,6 +155,7 @@ $(document).ready(function() {
           .bindPopup("<strong>" + response.searchResults[i].name + "</strong>")
           .openPopup();
       }
+
       $(".leaflet-popup").on("click", function(evt) {
         evt.preventDefault();
 
@@ -171,21 +172,25 @@ $(document).ready(function() {
           school +
           "&qSearchSchoolNameOnly=true&appID=55dad4c8&appKey=8512eecb93df3e030cb4b4da02440018";
 
-          $.ajax({
-            url: schoolURL,
-            method: "GET"
-          }).then(function (resp){
-            console.log(resp)
-          });
+        $.ajax({
+          url: schoolURL,
+          method: "GET"
+        }).then(function(resp) {
+          console.log(resp);
+
+          $("table")
+            .find("tbody")
+            .append(
+              [
+                "<tr>",
+                "<td>" + resp.schoolList[0].schoolName + "</td>",
+                "<td>" + resp.schoolList[0].schoolLevel + "</td>",
+                "<td>" + resp.schoolList[0].url + "</td>",
+                "</tr>"
+              ].join("")
+            );
+        });
       });
     });
   });
-
-  // $(".leaflet-popup").on("click", function (event){
-  //   event.preventDefault();
-  //   schoolName = $(this).schoolName.val().trim();
-  //   console.log(schoolName);
-  // })
-  // Radius Search API with MapQuest
-  // http://www.mapquestapi.com/search/v2/radius?key=L.mapquest.key&maxMatches=4&origin=39.750307,-104.999472
 });
