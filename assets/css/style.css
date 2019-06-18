@@ -72,7 +72,40 @@ th:last-child {
     float: right;
 }
 
+/* X-Small devices (portrait phones, less 576px) */
+@media (max-width: 575px) {
+    #map {
+        height: 45vh;
+    }
 
+    form {
+        margin: 0 30px;
+    }
+
+    #search {
+        padding-top: 2vh;
+    }
+
+    h2 {
+        margin-bottom: 0;
+    }
+
+    p {
+        margin-bottom: 30px;
+    }
+
+    form {
+        margin: 0 30px;
+    }
+
+    .form-group {
+        text-align: center;
+    }
+
+    input {
+        text-align: center;
+    }
+}
 /* // Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
     #map {
