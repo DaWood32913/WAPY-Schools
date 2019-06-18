@@ -17,20 +17,6 @@ $(document).ready(function() {
   // // Reference to the database we're writing to.
   var database = firebase.database();
 
-  $("#submit").on("click", function(testFirebase) {
-    testFirebase.preventDefault();
-
-    // Initial Values
-    var zippy = "";
-
-    zippy = $("#zipcode")
-      .val()
-      .trim();
-    database.ref().set({
-      zippy: zippy
-    });
-  });
-
   database.ref().on(
     "value",
     function(snapshot) {
@@ -48,14 +34,27 @@ $(document).ready(function() {
   // ======================================================================
   // Create Firebase event for adding train to the database and a row in the html when a user
   // adds an entry
-  // database.ref().on("child_added", function(childSnapshot) {
-  //   console.log(childSnapshot.val());
+  database.ref().on("child_added", function(childSnapshot) {
+    console.log(childSnapshot.val());
 
-  // Store data in variables
+    // Store data in variables
 
-  // var one = childSnapshot.val().one;
-  // var two = childSnapshot.val().two;
-  // var three = childSnapshot.val().three;
+    var schoolName = childSnapshot.val().schoolName;
+    var schoolType = childSnapshot.val().schoolType;
+    var schoolURL = childSnapshot.val().schoolURL;
+
+    $("table")
+      .find("tbody")
+      .append(
+        [
+          "<tr>",
+          "<td>" + schoolName + "</td>",
+          "<td>" + schoolType + "</td>",
+          "<td>" + schoolURL + "</td>",
+          "</tr>"
+        ].join("")
+      );
+  });
   // var four = childSnapshot.val().four;
   // var five = childSnapshot.val().five;
   // var six = childSnapshot.val().six;
@@ -189,6 +188,20 @@ $(document).ready(function() {
                 "</tr>"
               ].join("")
             );
+          $("#favorite").on("click", function(testFirebase) {
+            testFirebase.preventDefault();
+
+            // Initial Values
+            var schoolName = resp.schoolList[0].schoolName;
+            var schoolType = resp.schoolList[0].schoolLevel;
+            var schoolURL = resp.schoolList[0].url;
+
+            database.ref().push({
+              schoolName: schoolName,
+              schoolType: schoolType,
+              schoolURL: schoolURL
+            });
+          });
         });
       });
     });
