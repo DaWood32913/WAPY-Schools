@@ -17,76 +17,35 @@ $(document).ready(function() {
   // // Reference to the database we're writing to.
   var database = firebase.database();
 
-  database.ref().on(
-    "value",
-    function(snapshot) {
-      // Log everything that's coming out of snapshot
-      // console.log(snapshot.val());
-
-      // Handle the errors
-    },
-    function(errorObject) {
-      console.log("Errors handled: " + errorObject.code);
-    }
-  );
-
   // ======================================================================
   // Create Firebase event for adding train to the database and a row in the html when a user
   // adds an entry
-  database.ref().on("child_added", function(childSnapshot) {
-    console.log(childSnapshot.val());
+  function loadTable() {
+    database.ref().on("child_added", function(childSnapshot) {
+      console.log(childSnapshot.val());
 
-    // Store data in variables
+      // Store data in variables
 
-    var schoolName = childSnapshot.val().schoolName;
-    var schoolType = childSnapshot.val().schoolType;
-    var schoolWeb = childSnapshot.val().schoolWeb;
-
-    $("table")
-      .find("tbody")
-      .append(
-        [
-          "<tr>",
-          "<td>" + schoolName + "</td>",
-          "<td>" + schoolType + "</td>",
-          "<td>" + schoolWeb + "</td>",
-          "</tr>"
-        ].join("")
-      );
-  });
-  // var four = childSnapshot.val().four;
-  // var five = childSnapshot.val().five;
-  // var six = childSnapshot.val().six;
-
-  // console.log(one);
-  // console.log(two);
-  // console.log(three);
-  // console.log(four);
-  // console.log(five);
-  // console.log(six);
-
-  // Creates the new Row of data
-
-  // $("#table > tbody").append(
-  //   "<tr><td>" +
-  //     one +
-  //     "</td><td>" +
-  //     two +
-  //     "</td><td>" +
-  //     three +
-  //     "</td><td>" +
-  //     four +
-  //     "</td><td>" +
-  //     five +
-  //     "</td></tr>"
-  // );
-  // });
-
-  // database.ref().on("value", function(snapshot) {});
-
-  // =================================================================
-  //              CODE THAT WE MIGHT NEED TO USE    (end of code)
-  // ======================================================================
+      var schoolName = childSnapshot.val().schoolName;
+      var schoolType = childSnapshot.val().schoolType;
+      var schoolWeb = childSnapshot.val().schoolWeb;
+      var newURL = "https://google.com";
+      $("table")
+        .find("tbody")
+        .append(
+          [
+            "<tr>",
+            "<td>" + schoolName + "</td>",
+            "<td>" + schoolType + "</td>",
+            "<td> <a href=>" + schoolWeb + "<target='_blank'></a> </td>",
+            "</tr>"
+          ].join("")
+        );
+    }),
+      function(errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+      };
+  }
 
   L.mapquest.key = "t7tjvfXYnZqurjibcReSbSdBdd678z5W";
 
@@ -175,34 +134,38 @@ $(document).ready(function() {
           method: "GET"
         }).then(function(resp) {
           console.log(resp);
-
-          $("table")
-            .find("tbody")
-            .html(
-              [
-                "<tr:last>",
-                "<td>" + resp.schoolList[0].schoolName + "</td>",
-                "<td>" + resp.schoolList[0].schoolLevel + "</td>",
-                "<td>" + resp.schoolList[0].url + "</td>",
-                "</tr>"
-              ].join("")
-            );
-          $("#favorite").on("click", function(testFirebase) {
-            testFirebase.preventDefault();
-
-            // Initial Values
-            var schoolName = resp.schoolList[0].schoolName;
-            var schoolType = resp.schoolList[0].schoolLevel;
-            var schoolWeb = resp.schoolList[0].url;
-
-            database.ref().push({
-              schoolName: schoolName,
-              schoolType: schoolType,
-              schoolWeb: schoolWeb
+          if (resp.numberOfSchools === 1) {
+            $("table")
+              .find("tbody")
+              .append(
+                [
+                  "<tr:last>",
+                  "<td>" + resp.schoolList[0].schoolName + "</td>",
+                  "<td>" + resp.schoolList[0].schoolLevel + "</td>",
+                  "<td> <a href=>" + resp.schoolList[0].url + "target=_blank></a></td>",
+                  "</tr>"
+                ].join("")
+              );
+            }
+            $("#favorite").on("click", function(testFirebase) {
+              testFirebase.preventDefault();
+              //clear data from table
+              
+              // Initial Values
+              var schoolName = school;
+              var schoolType = resp.schoolList[0].schoolLevel;
+              var schoolWeb = resp.schoolList[0].url;
+              
+              database.ref().push({
+                schoolName: schoolName,
+                schoolType: schoolType,
+                schoolWeb: schoolWeb
+              });
+              // loadTable();
             });
           });
         });
       });
     });
-  });
+    loadTable();
 });
