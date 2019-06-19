@@ -41,7 +41,7 @@ $(document).ready(function() {
     var schoolName = childSnapshot.val().schoolName;
     var schoolType = childSnapshot.val().schoolType;
     var schoolWeb = childSnapshot.val().schoolWeb;
-
+    var newURL = "https://google.com";
     $("table")
       .find("tbody")
       .append(
@@ -49,45 +49,12 @@ $(document).ready(function() {
           "<tr>",
           "<td>" + schoolName + "</td>",
           "<td>" + schoolType + "</td>",
-          "<td>" + schoolWeb + "</td>",
+          "<td> <a href=>" + schoolWeb + "<target='_blank'></a> </td>",
           "</tr>"
         ].join("")
       );
   });
-  // var four = childSnapshot.val().four;
-  // var five = childSnapshot.val().five;
-  // var six = childSnapshot.val().six;
-
-  // console.log(one);
-  // console.log(two);
-  // console.log(three);
-  // console.log(four);
-  // console.log(five);
-  // console.log(six);
-
-  // Creates the new Row of data
-
-  // $("#table > tbody").append(
-  //   "<tr><td>" +
-  //     one +
-  //     "</td><td>" +
-  //     two +
-  //     "</td><td>" +
-  //     three +
-  //     "</td><td>" +
-  //     four +
-  //     "</td><td>" +
-  //     five +
-  //     "</td></tr>"
-  // );
-  // });
-
-  // database.ref().on("value", function(snapshot) {});
-
-  // =================================================================
-  //              CODE THAT WE MIGHT NEED TO USE    (end of code)
-  // ======================================================================
-
+ 
   L.mapquest.key = "t7tjvfXYnZqurjibcReSbSdBdd678z5W";
 
   var map = L.mapquest.map("map", {
@@ -175,21 +142,21 @@ $(document).ready(function() {
           method: "GET"
         }).then(function(resp) {
           console.log(resp);
-
           $("table")
-            .find("tbody")
-            .html(
-              [
-                "<tr:last>",
-                "<td>" + resp.schoolList[0].schoolName + "</td>",
-                "<td>" + resp.schoolList[0].schoolLevel + "</td>",
-                "<td>" + resp.schoolList[0].url + "</td>",
-                "</tr>"
-              ].join("")
+          .find("tbody")
+          .html(
+            [
+              "<tr:last>",
+              "<td>" + resp.schoolList[0].schoolName + "</td>",
+              "<td>" + resp.schoolList[0].schoolLevel + "</td>",
+              "<td>" + resp.schoolList[0].url + "</td>",
+              "</tr>"
+            ].join("")
             );
-          $("#favorite").on("click", function(testFirebase) {
-            testFirebase.preventDefault();
-
+            $("#favorite").on("click", function(testFirebase) {
+              testFirebase.preventDefault();
+              //clear data from table
+              
             // Initial Values
             var schoolName = resp.schoolList[0].schoolName;
             var schoolType = resp.schoolList[0].schoolLevel;
