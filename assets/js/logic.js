@@ -17,9 +17,6 @@ $(document).ready(function() {
   // // Reference to the database we're writing to.
   var database = firebase.database();
 
-  // ======================================================================
-  // Create Firebase event for adding train to the database and a row in the html when a user
-  // adds an entry
   function loadTable() {
     database.ref().on("child_added", function(childSnapshot) {
       console.log(childSnapshot.val());
@@ -29,10 +26,10 @@ $(document).ready(function() {
       var schoolName = childSnapshot.val().schoolName;
       var schoolType = childSnapshot.val().schoolType;
       var schoolWeb = childSnapshot.val().schoolWeb;
-      var newURL = "https://google.com";
+
       $("table")
         .find("tbody")
-        .append(
+        .prepend(
           [
             "<tr>",
             "<td>" + schoolName + "</td>",
@@ -98,8 +95,6 @@ $(document).ready(function() {
       // console.log(userLng);
       map.setView([userLat, userLng]);
 
-      // map.addControl(L.mapquest.control());
-
       for (i = 0; i < response.searchResults.length; i++) {
         // console.log(response.searchResults[i].shapePoints[0]);
         // console.log(response.searchResults[i].shapePoints[1]);
@@ -134,38 +129,56 @@ $(document).ready(function() {
           method: "GET"
         }).then(function(resp) {
           console.log(resp);
+          var schoolType = resp.schoolList[0].schoolLevel;
+          var schoolWeb = resp.schoolList[0].url;
+          console.log(schoolType);
+          console.log(schoolWeb);
+
           if (resp.numberOfSchools === 1) {
             $("table")
               .find("tbody")
-              .append(
+              .html(
                 [
                   "<tr:last>",
                   "<td>" + resp.schoolList[0].schoolName + "</td>",
                   "<td>" + resp.schoolList[0].schoolLevel + "</td>",
-                  "<td> <a href=>" + resp.schoolList[0].url + "target=_blank></a></td>",
+                  "<td> <a href=>" +
+                    resp.schoolList[0].url +
+                    "target=_blank></a></td>",
                   "</tr>"
                 ].join("")
               );
-            }
-            $("#favorite").on("click", function(testFirebase) {
-              testFirebase.preventDefault();
-              //clear data from table
-              
-              // Initial Values
-              var schoolName = school;
-              var schoolType = resp.schoolList[0].schoolLevel;
-              var schoolWeb = resp.schoolList[0].url;
-              
-              database.ref().push({
-                schoolName: schoolName,
-                schoolType: schoolType,
-                schoolWeb: schoolWeb
-              });
-              // loadTable();
+          } else {
+            $("table")
+              .find("tbody")
+              .html(
+                [
+                  "<tr:last>",
+                  "<td>N/A</td>",
+                  "<td>N/A</td>",
+                  "<td>N/A</td>",
+                  "</tr>"
+                ].join("")
+              );
+          }
+          $("#favorite").on("click", function(testFirebase) {
+            testFirebase.preventDefault();
+            //clear data from table
+
+            // Initial Values
+            var schoolName = school;
+            var schoolType = resp.schoolList[0].schoolLevel;
+            var schoolWeb = resp.schoolList[0].url;
+
+            database.ref().push({
+              schoolName: schoolName,
+              schoolType: schoolType,
+              schoolWeb: schoolWeb
             });
           });
         });
       });
     });
-    loadTable();
+  });
+  loadTable();
 });
