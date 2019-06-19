@@ -77,6 +77,7 @@ th:last-child {
     height: 250px;
 }
 
+
 /* X-Small devices (portrait phones, less 576px) */
 @media (max-width: 575px) {
     #map {
@@ -179,13 +180,21 @@ th:last-child {
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
     #map {
-        height: 100vh;
+        height: 992px;
     }
     form {
         margin: 0 80px;
     }
     h2 {
         margin-top: 8vh;
+    }
+
+    .card {
+        margin-top: 90px;
+    }
+
+    p {
+        margin-bottom: 60px;
     }
 }
 
