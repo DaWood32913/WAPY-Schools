@@ -29,7 +29,7 @@ $(document).ready(function() {
 
       $("table")
         .find("tbody")
-        .prepend(
+        .append(
           [
             "<tr>",
             "<td>" + schoolName + "</td>",
