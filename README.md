@@ -32,10 +32,10 @@ https://dawood32913.github.io/WAPY-Schools/
 
 As a team, we split into two sub-teams involving the user-interface and back-end. Woodley Johnson and Yukie Kushibiki focused on the user-interface, keeping in mind the ease of usability for parents. Aaron Maclnnis and Peter Rezanka focused on the functionality and assuring users of the unlimited options of schooling they have access to.
 
-### Woodley Johnson / https://github.com/DaWood32913
-### Aaron Maclnnis / https://github.com/Ironam1
-### Peter Rezanka / https://github.com/ScrantonPete
-### Yukie Kushibiki / https://github.com/yutsukushi
+### *Woodley Johnson / https://github.com/DaWood32913
+### *Aaron Maclnnis / https://github.com/Ironam1
+### *Peter Rezanka / https://github.com/ScrantonPete
+### *Yukie Kushibiki / https://github.com/yutsukushi
 
 ## Credits
 
