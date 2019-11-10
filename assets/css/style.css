@@ -1,3 +1,8 @@
+body, html {
+    width: 100%;
+    height: 100%;
+}  
+
 #map {
     height: 100vh;
     margin-left: 0px;
@@ -124,8 +129,9 @@ th:last-child {
 }
 /* // Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
+    
     #map {
-        height: 60vh;
+        height: 45vh;
     }
 
     form {
@@ -163,6 +169,10 @@ th:last-child {
 
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
+
+    #map {
+        height: 45vh;
+    }
     form {
         margin: 0 80px;
     }
@@ -179,9 +189,11 @@ th:last-child {
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+
     #map {
-        height: 992px;
+        height: 100vh;
     }
+   
     form {
         margin: 0 80px;
     }
